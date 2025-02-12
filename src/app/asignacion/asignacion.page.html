@@ -1,0 +1,25 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button (click)="goBack()">
+        <ion-icon slot="start" name="chevron-back-outline"></ion-icon>
+        Volver
+      </ion-button>
+    </ion-buttons>
+    <ion-title>Asignación</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content (ionSwipe)="onSwipe($event)">
+  <ion-card color="light" class="card-center">
+    <ion-card-header>
+      <ion-card-title>Cálculo de Asignación Concertada</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <p>Introduzca fecha de nacimiento</p>
+      <ion-datetime presentation="date" displayFormat="DD/MM/YYYY" (ionChange)="updateLabel($event)"></ion-datetime>
+      <ion-label color="success">{{ selectedDate }}</ion-label>
+    </ion-card-content>
+  </ion-card>
+  <ion-button color="dark" style="margin-bottom: 30px;" (click)="onSubmit()">ACEPTAR</ion-button>
+</ion-content>

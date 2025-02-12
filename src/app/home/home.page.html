@@ -1,0 +1,19 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      Inicio
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card color="light" class="card-center">
+    <ion-card-header>
+      <ion-card-title>Prejubilaciones Banca</ion-card-title>
+    </ion-card-header>
+
+    <ion-card-content>Cálculo de la fecha de jubilación ordinaria y cálculo de la asignación concertada por prejubilación</ion-card-content>
+    <ion-button color="dark" (click)="onClickFecha()">Cálculo Fecha de Jubilación Ordinaria</ion-button>
+    <ion-button color="danger" style="margin-bottom: 20px;" (click)="onClickAsignacion()">Cálculo de Asignación Concertada</ion-button>
+  </ion-card>
+</ion-content>

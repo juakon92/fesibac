@@ -1,0 +1,31 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button (click)="goBack()">
+        <ion-icon slot="start" name="chevron-back-outline"></ion-icon>
+        Inicio
+      </ion-button>
+    </ion-buttons>
+    <ion-title>Asignación</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card color="light" class="card-center">
+    <ion-card-header>
+      <ion-card-title>Entidades</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-list>
+        <ion-item>
+          <ion-select [(ngModel)]="selectedOption" aria-label="Bancos" interface="action-sheet" placeholder="Seleccione su entidad">
+            <ion-select-option value="santander">SANTANDER</ion-select-option>
+            <ion-select-option value="bbva">BBVA</ion-select-option>
+            <ion-select-option value="sabadell">BANCO SABADELL</ion-select-option>
+          </ion-select>
+        </ion-item>
+      </ion-list>
+    </ion-card-content>
+  </ion-card>
+  <ion-button color="dark" style="margin-top: 10%;" [disabled]="selectedOption !== 'santander'" (click)="onClick()">ACEPTAR</ion-button>
+</ion-content>

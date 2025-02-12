@@ -1,0 +1,38 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button (click)="goBack()">
+        <ion-icon slot="start" name="chevron-back-outline"></ion-icon>
+        Volver
+      </ion-button>
+    </ion-buttons>
+    <ion-title>Fecha</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content (ionSwipe)="onSwipe($event)">
+  <ion-card color="light" class="card-center">
+    <ion-card-header>
+      <ion-card-title>Cálculo Fecha de Jubilación Ordinaria</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <p>Introduzca fecha de nacimiento</p>
+      <ion-datetime presentation="date" displayFormat="DD/MM/YYYY" (ionChange)="updateLabel($event)"></ion-datetime>
+      <ion-label color="success">{{ selectedDate }}</ion-label>
+      <p style="margin-top: 20px;">(*) Informe de vida laboral<p>
+      <ion-item color="light">
+        <ion-label position="floating" style="text-align: center;">AÑOS COTIZADOS</ion-label>
+        <ion-input type="number" style="text-align: center;" id="anios-cotizados"></ion-input>
+      </ion-item>
+      <ion-item color="light">
+        <ion-label position="floating" style="text-align: center;">MESES COTIZADOS</ion-label>
+        <ion-input type="number" style="text-align: center;" id="meses-cotizados" (ionInput)="validar($event,11)"></ion-input>
+      </ion-item>
+      <ion-item color="light">
+        <ion-label position="floating" style="text-align: center;">DÍAS COTIZADOS</ion-label>
+        <ion-input type="number" style="text-align: center;" id="dias-cotizados" (ionInput)="validar($event,30)"></ion-input>
+      </ion-item>
+    </ion-card-content>
+  </ion-card>
+  <ion-button color="dark" (click)="onSubmit()">CALCULAR</ion-button>
+</ion-content>

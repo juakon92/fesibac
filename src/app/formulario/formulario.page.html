@@ -1,0 +1,110 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button (click)="goBack()">
+        <ion-icon slot="start" name="chevron-back-outline"></ion-icon>
+        Volver
+      </ion-button>
+    </ion-buttons>
+    <ion-title>Asignación</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <form [formGroup]="formulario" (ngSubmit)="onSubmit($event)">
+    <ion-card color="light" class="card-center">
+      <ion-card-content>
+        <ion-list lines="full">
+          <ion-list-header color="danger"  class="titulo">
+            <ion-label>CONCEPTOS PENSIONABLES DE CONVENIO</ion-label>
+          </ion-list-header>
+          <ion-item>
+            <ion-input type="number" formControlName="salario" placeholder="Salario Base Nivel:"></ion-input>
+            <ion-note slot="error" [hidden]="!checkError('triAntiguedad','required')">
+              Este campo es obligatorio
+            </ion-note>
+          </ion-item>
+          <ion-item>
+            <ion-input type="number" formControlName="triAntiguedad" placeholder="Trienios de Antigüedad:"></ion-input>
+            <ion-note slot="error" [hidden]="!checkError('triAntiguedad','required')">
+              Este campo es obligatorio
+            </ion-note>
+          </ion-item>
+          <ion-item>
+            <ion-input type="number" formControlName="triTecnicos" placeholder="Trienios Técnicos:"></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-input type="number" formControlName="complPersDestino" placeholder="Complemento Personal de Destino:"></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-input type="number" formControlName="cptoPersDestino" placeholder="Concepto Personal de Destino:"></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-input type="number" formControlName="compFiestasSupr" placeholder="Compensación Fiestas Suprimidas:"></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-input type="number" formControlName="plusPoliFunc" placeholder="Plus Polivalencia Funcional:"></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-input type="number" formControlName="difArticulo" placeholder="Diferencia Artículo 15.4.2:"></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-input type="number" formControlName="partBenefi" placeholder="Participación en Beneficios XXII CCB:"></ion-input>
+            <ion-note slot="error" [hidden]="!checkError('triAntiguedad','required')">
+              Este campo es obligatorio
+            </ion-note>
+          </ion-item>
+          <ion-item>
+            <ion-input type="number" formControlName="plusTRA" placeholder="Plus TAR:"></ion-input>
+          </ion-item>
+        </ion-list>
+        <ion-list lines="full">
+          <ion-list-header color="success" class="titulo">
+            <ion-label>CONCEPTOS PENSIONABLES EXTRACONVENIO</ion-label>
+          </ion-list-header>
+          <ion-item>
+            <ion-input type="number" formControlName="difSueldoCatSup" placeholder="Diferencia Sueldo Categoría Superior:"></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-input type="number" formControlName="sobresueldoCompGest" placeholder="Sobresueldo Comportamiento y Gestión:"></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-input type="number" formControlName="compJorEspecial" placeholder="Compensación Jornada Especial:"></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-input type="number" formControlName="complPuestoTrab" placeholder="Complemento Puesto de Trabajo:"></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-input type="number" formControlName="complFuncTrans" placeholder="Complemento Funcional Transitorio:"></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-input type="number" formControlName="sobresueldoEspecial" placeholder="Sobresueldo Especial:"></ion-input>
+          </ion-item>
+        </ion-list>
+        <ion-list lines="full">
+          <ion-list-header color="warning" class="titulo">
+            <ion-label>CONCEPTOS VOLUNTARIOS</ion-label>
+          </ion-list-header>
+          <ion-item>
+            <ion-input type="number" formControlName="complPersonal" placeholder="Complemento Personal:"></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-input type="number" formControlName="complVolunPersonal" placeholder="Complemento Voluntario Personal:"></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-input type="number" formControlName="complVoluntario" placeholder="Complemento Voluntario:"></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-input type="number" formControlName="complVolunPuesto" placeholder="Complemento Voluntario Puesto:"></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-input type="number" formControlName="complRemunEspecial" placeholder="Remuneración Especial:"></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-input type="number" formControlName="complMA" placeholder="Complemento M & A:"></ion-input>
+          </ion-item>
+        </ion-list>
+      </ion-card-content>
+    </ion-card>
+    <ion-button type="submit" color="dark" class="ion-margin" [disabled]="!formulario.valid" (click)="onClick()">CALCULAR</ion-button>
+  </form>
+</ion-content>

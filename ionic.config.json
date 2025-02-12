@@ -1,0 +1,7 @@
+{
+  "name": "Fesibac",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
